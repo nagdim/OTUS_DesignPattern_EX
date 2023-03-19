@@ -76,9 +76,9 @@ namespace TestQuadraticFunction
         {
             foreach (var value in new double[] { double.NaN, double.NegativeInfinity, double.PositiveInfinity, double.MaxValue })
             {
-                Assert.Throws<NotSupportedException>(() => QuadraticFunction.Solve(value, 1, 1));
-                Assert.Throws<NotSupportedException>(() => QuadraticFunction.Solve(1, value, 1));
-                Assert.Throws<NotSupportedException>(() => QuadraticFunction.Solve(1, 1, value));
+                Assert.Throws<QuadraticFunctionException>(() => QuadraticFunction.Solve(value, 1, 1));
+                Assert.Throws<QuadraticFunctionException>(() => QuadraticFunction.Solve(1, value, 1));
+                Assert.Throws<QuadraticFunctionException>(() => QuadraticFunction.Solve(1, 1, value));
             }
         }
     }
