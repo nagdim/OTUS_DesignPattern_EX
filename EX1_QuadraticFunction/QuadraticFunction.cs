@@ -6,8 +6,6 @@ namespace EX1_QuadraticFunction
     public static class QuadraticFunction
     {
         private const int c_delimeter = 5;
-        private static readonly Predicate<double>[] IndicateSpecifiedValueFunctions = new Predicate<double>[] { double.IsNaN, double.IsNegativeInfinity, double.IsPositiveInfinity, double.IsInfinity };
-
         public static double MinDoubleLimit = 0.000001;//1E-16;
 
 
@@ -45,11 +43,16 @@ namespace EX1_QuadraticFunction
 
         private static void ValidateArgument(string argumentName, double value)
         {
-            foreach (var func in IndicateSpecifiedValueFunctions)
-            {
-                if (func(value))
-                    throw new NotSupportedException($"Argument {argumentName} not supporterd to {value}");
-            }
+            ValidateValueByFunc(double.IsNaN, value, argumentName);
+            ValidateValueByFunc(double.IsInfinity, value, argumentName);
+            ValidateValueByFunc(double.IsNegativeInfinity, value, argumentName);
+            ValidateValueByFunc(double.IsPositiveInfinity, value, argumentName);
+        }
+
+        private static void ValidateValueByFunc(Predicate<double> validatefunc, double value, string valueName)
+        {
+            if (validatefunc(value))
+                throw new QuadraticFunctionException($"Value {valueName} cannot equal to {value}");
         }
     }
 }
