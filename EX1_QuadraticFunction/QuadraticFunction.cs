@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Linq;
 
 namespace EX1_QuadraticFunction
 {
     public static class QuadraticFunction
     {
         private const int c_delimeter = 5;
+        private const double c_epsilon = 1E-6;
         public static double MinDoubleLimit = 0.000001;//1E-16;
 
 
@@ -15,30 +15,31 @@ namespace EX1_QuadraticFunction
             ValidateArgument(nameof(b), b);
             ValidateArgument(nameof(c), c);
 
-            if (RoundLimit(a) == 0.0)
+            if (Math.Abs(a) <= c_epsilon)
                 throw new ArgumentException($"Argument {nameof(a)} cannot equal to zero.");
 
-            var d = RoundLimit(b * b - 4 * a * c);
+            var d = b * b - 4 * a * c;
 
             ValidateArgument("discriminant", d);
 
-            if (d < 0.0)
+            if (Math.Abs(d) < c_epsilon)
+            {
+                var x = RoundValue(- b / (2 * a));
+                return new double[] { x, x };
+            }
+
+            if (d < c_epsilon)
                 return Array.Empty<double>();
 
-            var sqrt_d = 0.0;
+            var x1 = (-b + Math.Sqrt(d)) / (2 * a);
+            var x2 = (-b - Math.Sqrt(d)) / (2 * a);
 
-            if (d > 0.0)
-                sqrt_d = Math.Sqrt(d);
-
-            var x1 = RoundLimit((-b + sqrt_d) / (2 * a));
-            var x2 = RoundLimit((-b - sqrt_d) / (2 * a));
-
-            return new double[] { Math.Round(x1, c_delimeter), Math.Round(x2, c_delimeter) };
+            return new double[] { RoundValue(x1), RoundValue(x2) };
         }
 
-        private static double RoundLimit(double value)
+        private static double RoundValue(double value)
         {
-            return Math.Abs(value) <= MinDoubleLimit ? 0.0 : value;
+            return Math.Round(value, c_delimeter);
         }
 
         private static void ValidateArgument(string argumentName, double value)
