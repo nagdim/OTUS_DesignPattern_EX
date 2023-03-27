@@ -2,9 +2,9 @@ name: TestThanBuild
 
 on:
   push:
-    branches: [ master ]
+    branches: [ dev, master ]
   pull_request:
-    branches: [ master ]
+    branches: [ dev, master ]
 
 jobs:
   build:
@@ -19,6 +19,8 @@ jobs:
         dotnet-version: 5.0.x
     - name: Dotnet restore dependencies
       run: dotnet restore
+    - name: Nuget restore dependencies
+      run: nuget restore      
     - name: Build
       run: dotnet build --no-restore
     - name: Test
