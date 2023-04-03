@@ -75,6 +75,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BurnFuelCommandTest.cs" />
+    <Compile Include="ChangeVelocityCommandTest.cs" />
+    <Compile Include="CheckFuelCommandTest.cs" />
+    <Compile Include="MacroCommandTest.cs" />
     <Compile Include="MoveCommandTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotateCommandTest.cs" />
