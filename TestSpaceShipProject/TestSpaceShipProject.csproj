@@ -82,6 +82,7 @@
     <Compile Include="MoveCommandTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotateCommandTest.cs" />
+    <Compile Include="Solid_Exception\Solid_ExceptionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceShipProject\SpaceShipProject.csproj">

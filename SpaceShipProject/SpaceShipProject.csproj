@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckFuelThanMoveThanBurnFuelCommand.cs" />
+    <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="QueueCommand\AddCommandToQueue.cs" />
     <Compile Include="BurnFuelCommand.cs" />
     <Compile Include="ChangeVelocityComamnd.cs" />
@@ -54,13 +55,18 @@
     <Compile Include="Contracts\Common\Vector.cs" />
     <Compile Include="Exceptions\FuelEmptyException.cs" />
     <Compile Include="Exceptions\NotDefinePropertyException.cs" />
+    <Compile Include="Handler\ExceptionHandler.cs" />
     <Compile Include="QueueCommand\ExecuteCommandAndAddToQueue.cs" />
     <Compile Include="MacroCommand.cs" />
     <Compile Include="MoveCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueueCommand\RepeatCommand.cs" />
+    <Compile Include="QueueCommand\IExceptionHandlerStrategy.cs" />
     <Compile Include="RotateCommand.cs" />
     <Compile Include="RotateThanChangeVelocityCommand.cs" />
+    <Compile Include="Solid_Exception\ExceptionCatchCommand.cs" />
+    <Compile Include="Solid_Exception\FirstRepeatExecuteCommand.cs" />
+    <Compile Include="Solid_Exception\LogCommand.cs" />
+    <Compile Include="Solid_Exception\SecondRepeatExecuteCommand.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
