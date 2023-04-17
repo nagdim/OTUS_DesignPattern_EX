@@ -6,7 +6,6 @@ namespace SpaceShipProject
     {
         private readonly IMovable m_movable;
         private readonly IFuelinfo m_fuelinfo;
-        private readonly IRotable m_rotable;
 
         public CheckFuelThanMoveThanBurnFuelCommand(IMovable movable, IFuelinfo fuelinfo)
         {
