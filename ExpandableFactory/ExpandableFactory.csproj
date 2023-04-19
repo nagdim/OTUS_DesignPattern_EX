@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InsertionSort.cs" />
     <Compile Include="IoC\Container.cs" />
     <Compile Include="IoC\Exceptions\RegisterContainerException.cs" />
     <Compile Include="IoC\Exceptions\ResolveContainerException.cs" />
@@ -52,7 +53,9 @@
     <Compile Include="IoC\StrategyContainer.cs" />
     <Compile Include="IValueReader.cs" />
     <Compile Include="IValueWriter.cs" />
-    <Compile Include="VariantToSort.cs" />
+    <Compile Include="MergeSort.cs" />
+    <Compile Include="SelectionSort.cs" />
+    <Compile Include="IVariantToSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

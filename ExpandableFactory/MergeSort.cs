@@ -1,44 +1,7 @@
 ﻿using System;
-using System.Collections;
 
 namespace ExpandableFactory
 {
-    public class SelectionSort : IVariantToSort
-    {
-        public void Sort(int[] data)
-        {
-            for (int current = 0; current < data.Length - 1; ++current)
-            {
-                int min = current;
-                for (int next = current + 1; next < data.Length; ++next)
-                {
-                    if (data[next].CompareTo(data[min]) < 0)
-                        min = next;
-                }
-
-                var swap = data[current];
-                data[current] = data[min];
-                data[min] = swap;
-            }
-        }
-    }
-
-    public class InsertionSort : IVariantToSort
-    {
-        public void Sort(int[] data)
-        {
-            for (int current = 1; current < data.Length; current++)
-            {
-                for (int next = current; next > 0 && data[next - 1] > data[next]; next--)
-                {
-                    var tmp = data[next - 1];
-                    data[next - 1] = data[next];
-                    data[next] = tmp;
-                }
-            }
-        }
-    }
-
     public class MergeSort : IVariantToSort
     {
         public void Sort(int[] data)
@@ -87,10 +50,5 @@ namespace ExpandableFactory
                 }
             }
         }
-    }
-
-    public interface IVariantToSort
-    {
-        void Sort(int[] data);
     }
 }
