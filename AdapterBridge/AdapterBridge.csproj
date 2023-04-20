@@ -46,9 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProgramRunner.cs" />
+    <Compile Include="IReader.cs" />
+    <Compile Include="IReadWriteCreator.cs" />
     <Compile Include="IWriter.cs" />
+    <Compile Include="ProgramAdapter.cs" />
     <Compile Include="Program_1.cs" />
     <Compile Include="Program_2.cs" />
+    <Compile Include="Program_3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
